@@ -20,6 +20,8 @@
 
 <script>
 
+var topics = ["climate","gmo","topic 3","topic 4"];
+
 var tpl = _.template("<h2 title='MEP from <%= country %> in <%= eugroup %>'> <%= first_name %> <%= last_name %></h2><img class='lazy-load' dsrc='blank.gif' data-original='http://ep.ngo.im/mepphoto/<%= epid %>.jpg' alt='<%= last_name %>, <%= first_name %> member of <%= eugroup %>' title='MEP from <%= country %> in <%= eugroup %>' width=170 height=216 />");
 
 function grid (selector,data) {
@@ -33,6 +35,7 @@ function grid (selector,data) {
     var birthdate=null;
 
     data.forEach(function (e) {
+      e.scores = [Math.random(),Math.random().Math.random(),Math.random()];
       birthdate = dateFormat.parse(e.birthdate);
       e.age= ~~((now - birthdate) / (31557600000));// 24 * 3600 * 365.25 * 1000
     });
@@ -55,6 +58,7 @@ function grid (selector,data) {
       return d.age;
       });
 
+
   var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
     //.x(d3.scale.ordinal())
   chart_age
@@ -68,6 +72,7 @@ function grid (selector,data) {
     .yAxisLabel("#MEPs")
     .dimension(age)
     .group(ageGroup);
+
 
   var pie_gender = dc.pieChart(selector +  " .gender").radius(70);
   var gender = ndx.dimension(function(d) {
@@ -86,6 +91,7 @@ function grid (selector,data) {
 
   var NameGender= {"M":"Male","F":"Female","":"missing data"};
   var SymbolGender= {"M":"\u2642","F":"\u2640","":""};
+  
 
   pie_gender
     .width(200)
@@ -223,6 +229,9 @@ width:200px;
 .dc-grid-item img {width:170px;height:215px}
 .dc-grid-top h1 {font-size:22px;}
 .dc-grid-top h2 {font-size:14px;}
+
+.age {display:none}
+
 </style>
 </div>
 
