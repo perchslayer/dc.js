@@ -22,7 +22,7 @@
 
 var topics = ["climate","gmo","topic 3","topic 4"];
 
-var tpl = _.template("<h2 title='MEP from <%= country %> in <%= eugroup %>'> <%= first_name %> <%= last_name %></h2><img class='lazy-load' dsrc='blank.gif' data-original='http://ep.ngo.im/mepphoto/<%= epid %>.jpg' alt='<%= last_name %>, <%= first_name %> member of <%= eugroup %>' title='MEP from <%= country %> in <%= eugroup %>' width=170 height=216 />");
+var tpl = _.template("<div style='background-color:<%= color %>;'><div class='score'><%= score %></div><h2 title='MEP from <%= country %> in <%= eugroup %>'><%= first_name %> <%= last_name %></h2><img class='lazy-load' dsrc='blank.gif' data-original='http://ep.ngo.im/mepphoto/<%= epid %>.jpg' alt='<%= last_name %>, <%= first_name %> member of <%= eugroup %>' title='MEP from <%= country %> in <%= eugroup %>' width=170 height=216 /></div>");
 
 function grid (selector,data) {
   var ndx = crossfilter(data),
@@ -32,6 +32,14 @@ function getScore () {
   var min =-100, max = 100;
   return Math.floor(Math.random() * (max - min) + min);
 }
+
+// color based on the score.
+var color = d3.scale.linear()
+        .clamp(true)
+        .domain([-100, -1, 0, 1, 100])
+        .range(["red","#f4d8d8","#ccc","#d0e5cc","#3a6033"])
+        .interpolate(d3.interpolateHcl);
+
 
   function adjust (data) {
     //calculate age
@@ -87,12 +95,6 @@ function getScore () {
 
   var groupGender   = gender.group().reduceSum(function(d) {   return 1; });
 
-  var bar_country = dc.barChart(selector + " .country");
-  var country = ndx.dimension(function(d) {
-      if (typeof d.country == "undefined") return "";
-      return d.country;
-      });
-  var countryGroup   = country.group().reduceSum(function(d) { return 1; });
 
   var NameGender= {"M":"Male","F":"Female","":"missing data"};
   var SymbolGender= {"M":"\u2642","F":"\u2640","":""};
@@ -119,6 +121,33 @@ function getScore () {
     .renderlet(function (chart) {
         });
 
+/*  var bar_topic = dc.barChart (selector + ".topic");
+  var topic = ndx.dimension (function(d) {
+console.log (d);
+    return "aaa";
+  });
+  var topicGroup = topic.group().reduceSum (function(d) { return 0.6;});
+  bar_topic
+    .width(200)
+    .height(100)
+    .outerPadding(0)
+    .gap(1)
+    .margins({top: 0, right: 0, bottom: 10, left: 30})
+    .x(d3.scale.ordinal())
+    .xUnits(dc.units.ordinal)
+    .brushOn(false)
+    .elasticY(true)
+    .yAxisLabel("#topics")
+    .dimension(topic)
+    .group(topicGroup);
+*/
+
+  var bar_country = dc.barChart(selector + " .country");
+  var country = ndx.dimension(function(d) {
+      if (typeof d.country == "undefined") return "";
+      return d.country;
+      });
+  var countryGroup   = country.group().reduceSum(function(d) { return 1; });
   bar_country
     .width(444)
     .height(200)
@@ -152,7 +181,12 @@ function getScore () {
         return d.country;
         })
   .size(1000)
-    .html (function(d) { return tpl(d);})
+    .html (function(d) { 
+       d.score = d.scores [0];
+       d.color = color(d.score);
+       
+       return tpl(d);
+    })
     .sortBy(function (d) {
         return d.last_name;
         })
@@ -220,7 +254,18 @@ border: 1px solid #E3E3E3;
 padding: 10px;
 }
 
+.score {
+position:absolute;
+right:1px;
+background:white;
+width:50px;
+font-size:18px;
+padding:4px 1px;
+top:45px;
+}
+
 .dc-grid-item {
+position:relative;
 float:left;
 margin:0 10px 10px 0;
 padding:5px;
