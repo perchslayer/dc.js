@@ -37,7 +37,7 @@ function getScore () {
 var color = d3.scale.linear()
         .clamp(true)
         .domain([-100, -1, 0, 1, 100])
-        .range(["red","#f4d8d8","#ccc","#d0e5cc","#3a6033"])
+        .range(["#b00000","#f4d8d8","#ccc","#d0e5cc","#3a6033"])
         .interpolate(d3.interpolateHcl);
 
 
@@ -193,7 +193,7 @@ console.log (d);
 //  var countryScore   = country.group().reduceSum(function(d) { return d.scores[0]; });
   bar_country
     .colorCalculator(function(d, i) {
-      return color(d.value.score);
+      return color(d.value.score/d.value.count);
     })
     .valueAccessor (
        function(d) {
