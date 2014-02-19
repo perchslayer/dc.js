@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>dc.js - data grid example</title>
+<title>Scorecard demo</title>
 <link rel="stylesheet" type="text/css" href="../css/dc.css"/>
 </head>
 <body>
@@ -20,6 +20,125 @@
 
 <script>
 
+var eu_groups = [
+{"GUE/NGL":"#df73be"},
+{"S&D":"#ec2335"},
+{"Verts/ALE":"#67bd1b"},
+{"ALDE":"#f1cb01"},
+{"EFD":"60c0e2"},
+{"EPP":""},
+{"ECR":""},
+{"NI":""},
+{"Array":"pink"}
+];
+
+var topic_climate = {
+  "title": "Does your MEP care about the climate?",
+  "description": "We collected the main topics...",
+  "link": "",
+  "logo": "",
+  "limits": [
+  {"upper": 20,  "text": " is a climate killer.", "color": "red"},
+  {"upper": 40,  "text": " has voted against climate policies.", "color" : "orange" }, 
+  {"upper": 60,  "text": " is not really decided on the climate.", "color": "yellow"},
+  {"upper": 90,  "text": " is rather climate-friendly.",        "color": "palegreen"},
+  {"upper": 100, "text": " is a climate champion.",               "color": "lightgreen"} 
+  ],
+    "order": 1,
+    "name":"climate",
+    "weight": 1,
+};
+
+votes = [
+{
+  "id": "B7-0482/2013|§ 8 - AM 6D",
+    "dbid": 4995,
+    "weight": 1,
+    "title": "An EU greenhouse gas reduction target of 50% by 2030",
+    "description": "To keep the world from warming more than 2C, climate science and effort-sharing models recommend the EU should have greenhouse gas reduction targets of at least -55% by 2030.",
+    "recommendation": -1,
+},
+{
+  "id": "B7-0482/2013 - Am 12/1",
+  "dbid": 5004,
+  "weight": 0.5,
+  "title": "Phasing out fossil fuel subsidies",
+  "description": "Subsidies still support fossil fuels. Money used to support these polluting fuels could be used to support climate  action.",
+  "recommendation": 1,
+},
+{
+  "id": "A7-0046/2013 - Matthias Groote - Amended proposal",
+  "dbid": 5276,
+  "weight": 0.8,
+  "title": "Back-loading' the Emissions Trading System",
+  "description": "The EU carbon market has been sorely in need of reform for many years now - an agreement to temporarily withhold allowances was a small step in the right direction.",
+  "recommendation": 1,
+},
+{
+  "id": "A7-0135/2013 - Herbert Reul - Am 1/1",
+  "dbid": 4096,
+  "weight": 0.5,
+  "title": "Increasing European renewable energy supply",
+  "description": "Increasing the share of renewables is crucial in the transition to a low-carbon future. Ambitious targets are needed to secure this as a policy.",
+  "recommendation": 1,
+},
+{
+  "id": "A7-0035/2013 - Niki Tzavela - Am 1",
+  "dbid": 3939,
+  "weight": 0.8,
+  "title": "3 Binding Targets on the EU 2050 Roadmap",
+  "description": "NGO's have called for <a href='http://www.foeeurope.org/2030-climate-plan'>3 binding targets</a> on renewable energy, emissions reductions and energy saving measures. It is essential that the agreements are legally binding so that member states cannot escape from their responsibilities.",
+  "recommendation": 1,
+},
+{
+  "id": "A7-0191/2012 - Bas Eickhout - Legislative resolution",
+  "dbid": 3708,
+  "weight": 1,
+  "title": "Reporting greenhouse gas emissions across Europe",
+  "description": "In order to reduce greenhoues gas emissions across Europe, there must be firm standards for carbon accounting.",
+  "recommendation": 1,
+},
+{
+  "id": "A7-0265/2012 - Claude Turmes - Single vote",
+  "dbid": 3082,
+  "weight": 0.4,
+  "title": "Measures to reduce energy consumption",
+  "description": "Reducing energy consumption is a very effective and cheap way to reduce greenhouse gas emissions along with other benefits.",
+  "recommendation": 1,
+},
+{
+  "id": "A7-0033/2012 - Chris Davies - Am 1/2",
+  "dbid": 2636,
+  "weight": 0.8,
+  "title": "Increasing 2020 emissions reductions targets to 30%",
+  "description": "The EU's 2020 climate targets <a href='http://www.sandbag.org.uk/blog/2013/dec/9/eus-2020-targets-allow-massive-growth-emissions-em'>allows emissions to grow!</a> The targets need to be accordingly more ambitious to take into account current progress.",
+  "recommendation": 1,
+},
+{
+  "id": "B7-0571/2011 - § 38",
+  "dbid": 2340,
+  "weight": 0.4,
+  "title": "Climate finance for the world's poorest",
+  "description": "Developed countries have promised to provide $100bn /yr by 2020 to support developing countries fighting climate change impacts. ",
+  "recommendation": 1,
+},
+{
+  "id": "B7-0522/2011 - Resolution",
+  "dbid": 2189,
+  "weight": 0.6,
+  "title": "Developing a common EU position ahead of the United Nations Conference on Sustainable Development (Rio+20)",
+  "description": "Climate change will disproportionately impact the world's poorest, so it is essential that climate change considerations are integrated in development policy.",
+  "recommendation": 1,
+},
+{
+  "id": "B7-0141/2009/rev1 - Copenhagen Summit - resolution",
+  "dbid": 220,
+  "weight": 0.9,
+  "title": "The EU strategy for the Copenhagen Conference on Climate Change (COP 15)",
+  "description": "A global agreement at Copenhagen in 2009 would have been a big step in the right direction. These hopes ultimately floundered with a weak agreement. The EU position ahead of the conference was important groundwork.",
+  "recommendation": 1,
+}
+];
 var topics = ["climate","gmo","topic 3","topic 4"];
 
 var tpl = _.template("<div style='background-color:<%= color %>;'><div class='score'><%= score %></div><h2 title='MEP from <%= country %> in <%= eugroup %>'><%= first_name %> <%= last_name %></h2><img class='lazy-load' dsrc='blank.gif' data-original='http://ep.ngo.im/mepphoto/<%= epid %>.jpg' alt='<%= last_name %>, <%= first_name %> member of <%= eugroup %>' title='MEP from <%= country %> in <%= eugroup %>' width=170 height=216 /><div class='party'><%= party %></div></div>");
@@ -28,17 +147,17 @@ function grid (selector,data) {
   var ndx = crossfilter(data),
       all = ndx.groupAll();
 
-function getScore () {
-  var min =-100, max = 100;
-  return Math.floor(Math.random() * (max - min) + min);
-}
+  function getScore () {
+    var min =-100, max = 100;
+    return Math.floor(Math.random() * (max - min) + min);
+  }
 
-// color based on the score.
-var color = d3.scale.linear()
-        .clamp(true)
-        .domain([-100, -1, 0, 1, 100])
-        .range(["#b00000","#f4d8d8","#ccc","#d0e5cc","#3a6033"])
-        .interpolate(d3.interpolateHcl);
+  // color based on the score.
+  var color = d3.scale.linear()
+    .clamp(true)
+    .domain([-100, -1, 0, 1, 100])
+    .range(["#b00000","#f4d8d8","#ccc","#d0e5cc","#3a6033"])
+    .interpolate(d3.interpolateHcl);
 
 
   function adjust (data) {
@@ -48,10 +167,10 @@ var color = d3.scale.linear()
     var birthdate=null;
 
     data.forEach(function (e) {
-      e.scores = [getScore(),getScore(),getScore(),getScore()];
-      birthdate = dateFormat.parse(e.birthdate);
-      e.age= ~~((now - birthdate) / (31557600000));// 24 * 3600 * 365.25 * 1000
-    });
+        e.scores = [getScore(),getScore(),getScore(),getScore()];
+        birthdate = dateFormat.parse(e.birthdate);
+        e.age= ~~((now - birthdate) / (31557600000));// 24 * 3600 * 365.25 * 1000
+        });
   }
 
   adjust (data);
@@ -73,7 +192,7 @@ var color = d3.scale.linear()
 
 
   var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
-    //.x(d3.scale.ordinal())
+  //.x(d3.scale.ordinal())
   chart_age
     .width(444)
     .height(200)
@@ -98,32 +217,35 @@ var color = d3.scale.linear()
 
   var NameGender= {"M":"Male","F":"Female","":"missing data"};
   var SymbolGender= {"M":"\u2642","F":"\u2640","":""};
-  
+
 
   pie_gender
     .width(200)
     .height(200)
     .dimension(gender)
     .label(function (d){
-       return SymbolGender[d.key];
-    })
-    .title(function (d){
-       return NameGender[d.key] +": "+d.value;
-    })
-    .group(groupGender);
+        return SymbolGender[d.key];
+        })
+  .title(function (d){
+      return NameGender[d.key] +": "+d.value;
+      })
+  .group(groupGender);
 
   pie_group
     .width(200)
     .height(200)
     .dimension(group)
-    .colors(d3.scale.category10())
+    .colorCalculator(function(d, i) {
+console.log(d);
+        return "#ccee33";
+        })
     .group(groupGroup)
     .renderlet(function (chart) {
         });
 
-var score = ndx.dimension (function(d) {
-    return d.scores[0];
-  });
+  var score = ndx.dimension (function(d) {
+      return d.scores[0];
+      });
   var scoreGroup = score.group().reduceSum (function(d) { return 1;});
   var bar_score = dc.barChart (".bar_score")
     .width(250)
@@ -133,22 +255,22 @@ var score = ndx.dimension (function(d) {
     .margins({top: 10, right: 10, bottom: 20, left: 30})
     .x(d3.scale.linear().domain([-100, 100]))
     .elasticY(false)
-.round(dc.round.floor)
+    .round(dc.round.floor)
     .colorCalculator(function(d, i) {
-      return color(d.key);
-    })
-    .dimension(score)
+        return color(d.key);
+        })
+  .dimension(score)
     .group(scoreGroup);
 
 
   var party = ndx.dimension (function(d) {
-    if (typeof d.party == "undefined") return "";
-    return d.party;
-  });
+      if (typeof d.party == "undefined") return "";
+      return d.party;
+      });
 
   var partyGroup = party.group().reduceSum (function(d) { 
-    return 1;
-   return d.scores[0];});
+      return 1;
+      return d.scores[0];});
 
   pie_party =dc.pieChart(selector +  " .party").innerRadius(20).radius(70)
     .width(200)
@@ -159,26 +281,26 @@ var score = ndx.dimension (function(d) {
     .renderlet(function (chart) {
         });
 
-/*  var bar_topic = dc.barChart (selector + ".topic");
-  var topic = ndx.dimension (function(d) {
-console.log (d);
-    return "aaa";
-  });
-  var topicGroup = topic.group().reduceSum (function(d) { return 0.6;});
-  bar_topic
-    .width(200)
-    .height(100)
-    .outerPadding(0)
-    .gap(1)
-    .margins({top: 0, right: 0, bottom: 10, left: 30})
-    .x(d3.scale.ordinal())
-    .xUnits(dc.units.ordinal)
-    .brushOn(false)
-    .elasticY(true)
-    .yAxisLabel("#topics")
-    .dimension(topic)
-    .group(topicGroup);
-*/
+  /*  var bar_topic = dc.barChart (selector + ".topic");
+      var topic = ndx.dimension (function(d) {
+      console.log (d);
+      return "aaa";
+      });
+      var topicGroup = topic.group().reduceSum (function(d) { return 0.6;});
+      bar_topic
+      .width(200)
+      .height(100)
+      .outerPadding(0)
+      .gap(1)
+      .margins({top: 0, right: 0, bottom: 10, left: 30})
+      .x(d3.scale.ordinal())
+      .xUnits(dc.units.ordinal)
+      .brushOn(false)
+      .elasticY(true)
+      .yAxisLabel("#topics")
+      .dimension(topic)
+      .group(topicGroup);
+   */
 
   var bar_country = dc.barChart(selector + " .country");
   var country = ndx.dimension(function(d) {
@@ -186,20 +308,20 @@ console.log (d);
       return d.country;
       });
   var countryGroup   = country.group().reduce(
-    function(a,d) {a.count +=1; a.score +=d.scores[0]; return a; },
-    function(a,d) {a.count -=1; a.score -=d.scores[0]; return a; },
-    function() {return {count:0,score:0}; }
-  );
-//  var countryScore   = country.group().reduceSum(function(d) { return d.scores[0]; });
+      function(a,d) {a.count +=1; a.score +=d.scores[0]; return a; },
+      function(a,d) {a.count -=1; a.score -=d.scores[0]; return a; },
+      function() {return {count:0,score:0}; }
+      );
+  //  var countryScore   = country.group().reduceSum(function(d) { return d.scores[0]; });
   bar_country
     .colorCalculator(function(d, i) {
-      return color(d.value.score/d.value.count);
-    })
-    .valueAccessor (
-       function(d) {
-         return d.value.count;
-    })
-    .width(444)
+        return color(d.value.score/d.value.count);
+        })
+  .valueAccessor (
+      function(d) {
+      return d.value.count;
+      })
+  .width(444)
     .height(200)
     .outerPadding(0)
     .gap(1)
@@ -232,14 +354,14 @@ console.log (d);
         })
   .size(1000)
     .html (function(d) { 
-       d.score = d.scores [0];
-       d.color = color(d.score);
-       
-       return tpl(d);
-    })
-    .sortBy(function (d) {
-        return d.last_name;
+        d.score = d.scores [0];
+        d.color = color(d.score);
+
+        return tpl(d);
         })
+  .sortBy(function (d) {
+      return d.last_name;
+      })
   .order(d3.ascending)
     .renderlet(function (grid) {
         $("img.lazy-load").lazyload ({
@@ -310,26 +432,26 @@ padding: 10px;
 }
 
 .score {
-  position:absolute;
-  right:1px;
-  color:#111;
-  background: rgba(255, 255, 255, 0.31);
-  text-shadow: lightgrey 1.5px 1.5px;
-  width: 100%;
-  font-size: 40px;
-  padding: 1px 1px;
-  bottom: 15px;
-  font-weight: bold;
+position:absolute;
+right:1px;
+color:#111;
+background: rgba(255, 255, 255, 0.31);
+            text-shadow: lightgrey 1.5px 1.5px;
+width: 100%;
+       font-size: 40px;
+padding: 1px 1px;
+bottom: 15px;
+        font-weight: bold;
 }
 
 .dc-grid-item>div {
-  padding:5px;
-      border-color: #E7E7E7;
-      border-radius: 4px;
-      text-align:center;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
-  height:354px;
-  margin-bottom:5px;
+padding:5px;
+        border-color: #E7E7E7;
+        border-radius: 4px;
+        text-align:center;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+height:354px;
+       margin-bottom:5px;
 }
 
 .party {font-size:0.9em;font-style:italic; padding-top:5px;}
@@ -337,7 +459,7 @@ padding: 10px;
 .dc-grid-item {
 position:relative;
 float:left;
-min-height:354px;
+      min-height:354px;
 margin:0 10px 0px 0;
 width:200px;
       background-color: #F8F8F8;
