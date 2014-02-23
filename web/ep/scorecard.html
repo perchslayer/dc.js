@@ -14,6 +14,7 @@
 <script type="text/javascript" src="../js/dc.js"></script>
 <script type="text/javascript" src="../../src/data-grid.js"></script>
 <script type="text/javascript" src="underscore-min.js"></script>
+<!--script type="text/javascript" src="queue.v1.min.js"></script-->
 
 <script src="jquery.min.js"></script>
 <script src="jquery.lazyload.js"></script>
@@ -49,7 +50,7 @@ var topic_climate = {
     "weight": 1,
 };
 
-votes = [
+climate_votes = [
 {
   "id": "B7-0482/2013|§ 8 - AM 6D",
     "dbid": 4995,
@@ -139,12 +140,45 @@ votes = [
   "recommendation": 1,
 }
 ];
+
+var votes = function (all) {
+  this.all = all;
+  this.index = {};
+  _.each (all, function(v,i) {
+    v.pro = v.against = v.abstention = v.absent = 0;
+    if (typeof v.dbid !== "undefined") {
+      this.index[v.dbid] = i;
+    }
+  },this);
+};
+
+votes.prototype.get = function (id) {
+  if (this.index[id])
+    return this.all[this.index[id]];
+  return null;// asking for a vote that doesn't exist
+}
+
+votes.prototype.setRollCall = function (rolls) {
+  var type = {1:"pro","-1":"against",0:"abstention","":"absent"};
+  this.rollcalls = rolls;
+  _.each (rolls, function(i) {
+var mep =i;
+    _.each(this.all, function (vote,id) {
+      ++vote[type[mep[vote.dbid]]];
+    }, this);
+  }, this);
+}
+
+var vote = new votes (climate_votes);
+
+console.log (vote.get (2636));
+  
 var topics = ["climate","gmo","topic 3","topic 4"];
 
 var tpl = _.template("<div style='background-color:<%= color %>;'><div class='score'><%= score %></div><h2 title='MEP from <%= country %> in <%= eugroup %>'><%= first_name %> <%= last_name %></h2><img class='lazy-load' dsrc='blank.gif' data-original='http://ep.ngo.im/mepphoto/<%= epid %>.jpg' alt='<%= last_name %>, <%= first_name %> member of <%= eugroup %>' title='MEP from <%= country %> in <%= eugroup %>' width=170 height=216 /><div class='party'><%= party %></div></div>");
 
-function grid (selector,data) {
-  var ndx = crossfilter(data),
+function grid (selector) {
+  var ndx = crossfilter(meps),
       all = ndx.groupAll();
 
   function getScore () {
@@ -173,7 +207,7 @@ function grid (selector,data) {
         });
   }
 
-  adjust (data);
+  adjust (meps);
 
   var pie_group = dc.pieChart(selector +  " .group").innerRadius(20).radius(70);
   var group = ndx.dimension(function(d) {
@@ -402,12 +436,27 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 </div>
 
 <script>
+var meps = [];
+var mepvotes = [];
+
 $(function() {
+  var _grid = _.after(2, function () {
+//grid ("#ep2014list");
+  });
+
     d3.csv("mep.csv", function(d) {return d;}
       ,function(error, rows) {
-      grid ("#ep2014list",rows);
+        meps = rows;
+        _grid ();
       });      
-    });      
+
+    d3.csv("votes_climate.csv", function(d) {return d;}
+      ,function(error, rows) {
+        vote.setRollCall (rows);
+        _grid ();
+      });      
+
+});      
 </script>
 
 <style>
