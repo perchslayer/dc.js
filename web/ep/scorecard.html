@@ -182,6 +182,18 @@ votes.prototype.setRollCall = function (rolls) {
       ++vote[type[mep[vote.dbid]]];
     }, this);
   }, this);
+  // coef calculation
+    var max = 0, min = Infinity;
+    _.each(this.all, function (vote) {
+      vote.cast = vote.pro+vote.against+vote.abstention;
+      vote.weight = Math.abs (vote.cast / (vote.against - vote.pro));
+      if (min > vote.weight) min = vote.weight;
+      if (max < vote.weight) max = vote.weight;
+    }, this);
+    _.each(this.all, function (vote) {
+      vote.weight = 1+(vote.weight-min)/(max-min);
+    }, this);
+  
 }
 
 votes.prototype.getScore = function (mepid) {
@@ -193,8 +205,8 @@ votes.prototype.getScore = function (mepid) {
   var mep = this.rollcalls[this.mepindex[mepid]];
   _.each(this.all, function (vote) {
     if (mep[vote.dbid]) {
-      nbvote = nbvote + 1; //no weight used
-      score = score + vote.recommendation * mep[vote.dbid];
+      nbvote = nbvote + vote.weight; //no weight used
+      score = score + vote.recommendation * mep[vote.dbid]*vote.weight;
     }
   },this);
   if (nbvote == 0) 
