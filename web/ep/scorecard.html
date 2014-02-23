@@ -21,17 +21,18 @@
 
 <script>
 
-var eu_groups = [
-{"GUE/NGL":"#df73be"},
-{"S&D":"#ec2335"},
-{"Verts/ALE":"#67bd1b"},
-{"ALDE":"#f1cb01"},
-{"EFD":"60c0e2"},
-{"EPP":""},
-{"ECR":""},
-{"NI":""},
-{"Array":"pink"}
-];
+var eu_groups = {
+"GUE/NGL":"#df73be",
+"S&D":"#ec2335",
+"Verts/ALE":"#67bd1b",
+"ALDE":"#f1cb01",
+"EFD":"#60c0e2",
+"PPE":"blue",
+"EPP":"blue",
+"ECR":"darkblue",
+"NI":"grey",
+"Array":"pink"
+};
 
 var topic_climate = {
   "title": "Does your MEP care about the climate?",
@@ -230,7 +231,6 @@ function grid (selector) {
     var dateFormat = d3.time.format("%Y-%m-%d");
     var now = Date.now();
     var birthdate=null;
-
     data.forEach(function (e) {
         e.scores = [getScore(e),getScore(e),getScore(e),getScore(e)];
         birthdate = dateFormat.parse(e.birthdate);
@@ -301,9 +301,10 @@ function grid (selector) {
     .height(200)
     .dimension(group)
     .colorCalculator(function(d, i) {
-console.log(d);
-        return "#ccee33";
-        })
+      if (eu_groups[d.key])
+        return eu_groups[d.key];
+      return "pink";
+    })
     .group(groupGroup)
     .renderlet(function (chart) {
         });
@@ -348,8 +349,7 @@ console.log(d);
 
   /*  var bar_topic = dc.barChart (selector + ".topic");
       var topic = ndx.dimension (function(d) {
-      console.log (d);
-      return "aaa";
+//        return do something;
       });
       var topicGroup = topic.group().reduceSum (function(d) { return 0.6;});
       bar_topic
