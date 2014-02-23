@@ -320,7 +320,7 @@ function grid (selector) {
     .gap(1)
     .margins({top: 10, right: 10, bottom: 20, left: 30})
     .x(d3.scale.linear().domain([-100, 100]))
-    .elasticY(false)
+    .elasticY(true)
     .round(dc.round.floor)
     .colorCalculator(function(d, i) {
         return color(d.key);
@@ -552,7 +552,7 @@ width:200px;
 .dc-grid-top h1 {font-size:22px;}
 .dc-grid-top h2 {font-size:14px;}
 
-.age {display:none}
+aa.age {display:none}
 
 </style>
 </div>
