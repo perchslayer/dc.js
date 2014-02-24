@@ -336,8 +336,19 @@ var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
     .colorCalculator(function(d, i) {
         return color(d.key);
         })
-  .dimension(score)
-    .group(scoreGroup);
+    .dimension(score)
+    .group(scoreGroup)
+    .renderlet(function (chart) {
+      if (!console || !console.log) return;
+      var d = chart.dimension().top(Number.POSITIVE_INFINITY);
+      var total = nb = 0;
+      d.forEach (function (a) {
+        ++nb;
+        total += a.scores[0];
+      }); 
+      var avg= total/nb;
+      console.log ("average:" + avg);
+    });
 
 
   var party = ndx.dimension (function(d) {
