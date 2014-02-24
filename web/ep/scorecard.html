@@ -30,7 +30,7 @@ var eu_groups = {
 "PPE":"blue",
 "EPP":"blue",
 "ECR":"darkblue",
-"NI":"grey",
+"NA/NI":"grey",
 "Array":"pink"
 };
 
@@ -242,11 +242,10 @@ function grid (selector) {
     //calculate age
     var dateFormat = d3.time.format("%Y-%m-%d");
     var now = Date.now();
-    var birthdate=null;
     data.forEach(function (e) {
         e.scores = [getScore(e),getScore(e),getScore(e),getScore(e)];
-        birthdate = dateFormat.parse(e.birthdate);
-        e.age= ~~((now - birthdate) / (31557600000));// 24 * 3600 * 365.25 * 1000
+        e.birthdate = dateFormat.parse(e.birthdate);
+        e.age= ~~((now - e.birthdate) / (31557600000));// 24 * 3600 * 365.25 * 1000
         });
   }
 
@@ -262,14 +261,14 @@ function grid (selector) {
   //var chart_age = dc.barChart(selector + " .age");
   var chart_age = dc.lineChart(selector + " .age");
 
-  var age = ndx.dimension(function(d) {
+ var age = ndx.dimension(function(d) {
       if (typeof d.age == "undefined") return "";
       return d.age;
       });
 
 
-  var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
-  //.x(d3.scale.ordinal())
+var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
+
   chart_age
     .width(444)
     .height(200)

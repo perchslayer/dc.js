@@ -15,16 +15,16 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 96681,LT,Vilija,BLINKEVIČIŪTĖ,1960-03-03,F,S&D,Lietuvos socialdemokratų partija
 96799,PL,Piotr,BORYS,1976-01-11,M,PPE,Platforma Obywatelska
 96719,CZ,Andrea,ČEŠKOVÁ,1971-10-18,F,ECR,Občanská demokratická strana
-96603,IE,Nessa,CHILDERS,1956-10-09,F,Array,Labour Party
+96603,IE,Nessa,CHILDERS,1956-10-09,F,NA/NI,Labour Party
 28493,GB,Derek Roland,CLARK,1933-10-10,M,EFD,United Kingdom Independence Party
 96915,IT,Sergio Gaetano,COFFERATI,1948-01-30,M,S&D,Partito Democratico
 96975,PT,António Fernando,CORREIA DE CAMPOS,1942-12-14,M,S&D,Parti socialiste
 96917,IT,Silvia,COSTA,1949-06-12,F,S&D,Partito Democratico
-96951,GB,Diane,DODDS,1958-08-16,F,Array,Democratic Unionist Party (Northern Ireland)
+96951,GB,Diane,DODDS,1958-08-16,F,NA/NI,Democratic Unionist Party (Northern Ireland)
 96888,IT,Leonardo,DOMENICI,1955-07-12,M,S&D,Partito Democratico
 96692,LT,Leonidas,DONSKIS,1962-08-13,M,ALDE,Lietuvos Respublikos liberalų sąjūdis
 96787,IT,Herbert,DORFMANN,1969-03-04,M,PPE,Südtiroler Volkspartei (Partito popolare sudtirolese)
-39769,AT,Martin,EHRENHAUSER,1978-09-18,M,Array,-
+39769,AT,Martin,EHRENHAUSER,1978-09-18,M,NA/NI,-
 96682,FI,Sari,ESSAYAH,1967-02-21,F,PPE,Suomen kristillisdemokraatit
 96811,ES,Rosa,ESTARÀS FERRAGUT,1965-10-21,F,PPE,Partido Popular
 96977,PT,Diogo,FEIO,1970-10-06,M,PPE,Partido Popular
@@ -40,7 +40,7 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 28424,EE,Tunne,KELAM,1936-07-10,M,PPE,Erakond Isamaa ja Res Publica Liit
 96668,IE,Seán,KELLY,1952-04-26,M,PPE,Fine Gael Party
 96769,DE,Jürgen,KLUTE,1953-10-13,M,GUE/NGL,DIE LINKE.
-102887,HU,Béla,KOVÁCS,1960-02-25,M,Array,Jobbik Magyarországért Mozgalom
+102887,HU,Béla,KOVÁCS,1960-02-25,M,NA/NI,Jobbik Magyarországért Mozgalom
 96651,SK,Eduard,KUKAN,1939-12-26,M,PPE,Slovenská demokratická a kresťanská únia - Demokratická strana
 96765,ES,Verónica,LOPE FONTAGNÉ,1952-02-01,F,PPE,Partido Popular
 96854,DE,Sabine,LÖSING,1955-11-30,F,GUE/NGL,DIE LINKE.
@@ -48,7 +48,7 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 96673,SE,Olle,LUDVIGSSON,1948-10-28,M,S&D,Arbetarepartiet- Socialdemokraterna
 96792,PL,Bogdan Kazimierz,MARCINKIEWICZ,1966-03-21,M,PPE,Platforma Obywatelska
 96652,SK,Alajos,MÉSZÁROS,1952-06-18,M,PPE,Strana mad'arskej komunity- Magyar Közösség Pártja
-28255,AT,Andreas,MÖLZER,1952-12-02,M,Array,Freiheitliche Partei Österreichs
+28255,AT,Andreas,MÖLZER,1952-12-02,M,NA/NI,Freiheitliche Partei Österreichs
 96695,LT,Radvilė,MORKŪNAITĖ-MIKULĖNIENĖ,1984-01-02,F,PPE,Tėvynės sąjunga - Lietuvos krikščionys demokratai
 96760,IT,Tiziano,MOTTI,1966-02-07,M,PPE,Unione dei Democratici cristiani e dei Democratici di Centro
 96701,ES,María,MUÑIZ DE URQUIZA,1962-08-05,F,S&D,Partido Socialista Obrero Español
@@ -87,14 +87,14 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 96959,GB,George,LYON,1956-07-16,M,ALDE,Liberal Democrats Party
 116663,BG,Monika,PANAYOTOVA,1983-08-19,F,PPE,Citizens for European Development of Bulgaria
 99419,GR,Charalampos,ANGOURAKIS,1951-01-19,M,GUE/NGL,Communist Party of Greece
-115868,NL,Patricia van der,KAMMEN,1972-04-08,F,Array,Partij voor de Vrijheid
+115868,NL,Patricia van der,KAMMEN,1972-04-08,F,NA/NI,Partij voor de Vrijheid
 111017,ES,Dolores,GARCÍA-HIERRO CARABALLO,1958-05-16,F,S&D,Partido Socialista Obrero Español
 96860,FR,Michèle,STRIFFLER,1957-08-23,F,PPE,Parti Radical / Union des Démocrates et Indépendants
 116823,IT,Francesca,BARRACCIU,1966-06-11,F,S&D,Partito Democratico
 113959,GB,Martina,ANDERSON,1962-04-16,F,GUE/NGL,Sinn Féin
 96702,RO,Elena Oana,ANTONESCU,1979-12-30,F,PPE,Partidul Democrat-Liberal
 116816,BG,Preslav,BORISSOV,1977-03-07,M,PPE,Citizens for European Development of Bulgaria
-94283,GB,Trevor,COLMAN,1941-08-27,M,Array,United Kingdom Independence Party
+94283,GB,Trevor,COLMAN,1941-08-27,M,NA/NI,United Kingdom Independence Party
 96726,NL,Marije,CORNELISSEN,1974-03-09,F,Verts/ALE,GroenLinks
 96868,FR,Karima,DELLI,1979-03-04,F,Verts/ALE,Europe Écologie
 117477,BE,Mark,DEMESMAEKER,1958-09-12,M,Verts/ALE,Nieuw-Vlaamse Alliantie
@@ -103,10 +103,10 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 96648,BE,Philippe,LAMBERTS,1963-03-14,M,Verts/ALE,Ecologistes Confédérés pour l'Organisation de Luttes Originales
 118144,CY,Andreas,PITSILLIDES,1977-06-09,M,PPE,Democratic Rally
 113487,PT,Alda,SOUSA,1953-08-04,F,GUE/NGL,Bloco de Esquerda
-118710,IT,Franco,BONANINI,1952-11-07,M,Array,Indipendente
+118710,IT,Franco,BONANINI,1952-11-07,M,NA/NI,Indipendente
 111014,AT,Josef,WEIDENHOLZER,1950-03-06,M,S&D,Sozialdemokratische Partei Österreichs
 118708,IT,Susy,DE MARTINI,1952-06-17,F,ECR,Forza Italia
-103246,NL,Auke,ZIJLSTRA,1964-11-01,M,Array,Partij voor de Vrijheid
+103246,NL,Auke,ZIJLSTRA,1964-11-01,M,NA/NI,Partij voor de Vrijheid
 119439,HR,Marino,BALDINI,1963-07-12,M,S&D,Socijaldemokratska partija Hrvatske
 28497,GB,Gerard,BATTEN,1954-03-27,M,EFD,United Kingdom Independence Party
 28336,CZ,Věra,FLASAROVÁ,1952-12-19,F,GUE/NGL,Komunistická strana Čech a Moravy
@@ -117,7 +117,7 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 4293,DE,Gabriele,STAUNER,1948-04-22,F,PPE,Christlich-Soziale Union in Bayern e.V.
 119440,HR,Oleg,VALJALO,1970-11-19,M,S&D,Socijaldemokratska partija Hrvatske
 96944,GB,Marina,YANNAKOUDAKIS,1956-04-16,F,ECR,Conservative Party
-117119,RO,Dan Dumitru,ZAMFIRESCU,1953-11-01,M,Array,Partidul România Mare
+117119,RO,Dan Dumitru,ZAMFIRESCU,1953-11-01,M,NA/NI,Partidul România Mare
 118709,IT,Fabrizio,BERTOT,1967-02-23,M,PPE,Forza Italia
 96815,NL,Judith,SARGENTINI,1974-03-13,F,Verts/ALE,GroenLinks
 96696,LT,Algirdas,SAUDARGAS,1948-04-17,M,PPE,Tėvynės sąjunga - Lietuvos krikščionys demokratai
@@ -235,7 +235,7 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 111589,PT,Inês Cristina,ZUBER,1980-03-11,F,GUE/NGL,Partido Comunista Português
 96803,PL,Zbigniew,ZIOBRO,1970-08-18,M,EFD,Solidarna Polska
 111019,ES,Eva,ORTIZ VILELLA,1975-10-16,F,PPE,Partido Popular
-111026,AT,Ewald,STADLER,1961-05-21,M,Array,Bündnis Zukunft Österreich
+111026,AT,Ewald,STADLER,1961-05-21,M,NA/NI,Bündnis Zukunft Österreich
 112620,GB,Rebecca,TAYLOR,1975-08-10,F,ALDE,Liberal Democrats Party
 96908,FR,Gaston,FRANCO,1944-02-04,M,PPE,Union pour un Mouvement Populaire
 23785,PL,Andrzej,GRZYB,1956-08-23,M,PPE,Polskie Stronnictwo Ludowe
@@ -259,7 +259,7 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 96918,GB,Derek,VAUGHAN,1961-05-02,M,S&D,Labour Party
 112071,IE,Emer,COSTELLO,1962-09-03,F,S&D,Labour Party
 111027,BG,Svetoslav Hristov,MALINOV,1968-01-19,M,PPE,Blue Coalition
-96749,GB,Andrew Henry William,BRONS,1947-06-16,M,Array,British Democratic Party
+96749,GB,Andrew Henry William,BRONS,1947-06-16,M,NA/NI,British Democratic Party
 4553,GB,Jacqueline,FOSTER,1947-12-30,F,ECR,Conservative Party
 96735,FR,Patrick,LE HYARIC,1957-02-04,M,GUE/NGL,Front de gauche pour changer d’Europe
 96831,DE,Jutta,STEINRUCK,1962-09-01,F,S&D,Sozialdemokratische Partei Deutschlands
@@ -314,11 +314,11 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 28174,NL,Thijs,BERMAN,1957-09-26,M,S&D,Partij van de Arbeid
 23788,PL,Adam,BIELAN,1974-09-12,M,ECR,Polska Razem Jarosława Gowina
 38610,BG,Slavi,BINEV,1965-12-10,M,EFD,"People for Real, Open and United Democracy / Conservative Party for Democracy and Success"
-28513,GB,Godfrey,BLOOM,1949-11-22,M,Array,United Kingdom Independence Party
+28513,GB,Godfrey,BLOOM,1949-11-22,M,NA/NI,United Kingdom Independence Party
 39722,RO,Sebastian Valentin,BODU,1970-12-07,M,PPE,Partidul Democrat-Liberal
 1037,DE,Reimer,BÖGE,1951-12-18,M,PPE,Christlich Demokratische Union Deutschlands
 29074,IT,Vito,BONSIGNORE,1943-07-03,M,PPE,Nuovo Centrodestra
-21817,IT,Mario,BORGHEZIO,1947-12-03,M,Array,Lega Nord
+21817,IT,Mario,BORGHEZIO,1947-12-03,M,NA/NI,Lega Nord
 96916,IT,Rita,BORSELLINO,1945-06-02,F,S&D,Partito Democratico
 39711,RO,Victor,BOŞTINARU,1952-05-17,M,S&D,Partidul Social Democrat
 33570,GB,Sharon,BOWLES,1953-06-12,F,ALDE,Liberal Democrats Party
@@ -344,7 +344,7 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 28243,DE,Jorgo,CHATZIMARKAKIS,1966-04-21,M,ALDE,Freie Demokratische Partei
 2097,GB,Giles,CHICHESTER,1946-07-29,M,ECR,Conservative Party
 28154,DK,Ole,CHRISTENSEN,1955-05-07,M,S&D,Socialdemokratiet
-24030,BE,Philip,CLAEYS,1965-05-24,M,Array,Vlaams Belang
+24030,BE,Philip,CLAEYS,1965-05-24,M,NA/NI,Vlaams Belang
 1202,FR,Yves,COCHET,1946-02-15,M,Verts/ALE,Europe Écologie
 1892,PT,Carlos,COELHO,1960-05-20,M,PPE,Partido Social Democrata
 1934,FR,Daniel,COHN-BENDIT,1945-04-04,M,Verts/ALE,Europe Écologie
@@ -407,13 +407,13 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 28145,HU,Béla,GLATTFELDER,1967-05-04,M,PPE,Fidesz-Magyar Polgári Szövetség-Keresztény Demokrata Néppárt
 4429,LU,Robert,GOEBBELS,1944-04-03,M,S&D,Parti ouvrier socialiste luxembourgeois
 840,LU,Charles,GOERENS,1952-02-06,M,ALDE,Parti démocratique
-1164,FR,Bruno,GOLLNISCH,1950-01-28,M,Array,Front national
+1164,FR,Bruno,GOLLNISCH,1950-01-28,M,NA/NI,Front national
 28306,PT,Ana,GOMES,1954-02-09,F,S&D,Partido Socialista
 96832,HU,Kinga,GÖNCZ,1947-11-08,F,S&D,Magyar Szocialista Párt
 28393,ES,Luis de,GRANDES PASCUAL,1945-01-27,M,PPE,Partido Popular
 28220,DE,Ingeborg,GRÄSSLE,1961-03-02,F,PPE,Christlich Demokratische Union Deutschlands
 28208,FR,Nathalie,GRIESBECK,1956-05-24,F,ALDE,Mouvement Démocrate
-96751,GB,Nick,GRIFFIN,1959-03-01,M,Array,British National Party
+96751,GB,Nick,GRIFFIN,1959-03-01,M,NA/NI,British National Party
 34728,DE,Matthias,GROOTE,1973-10-21,M,S&D,Sozialdemokratische Partei Deutschlands
 2247,BE,Mathieu,GROSCH,1950-09-14,M,PPE,Christlich Soziale Partei
 2025,FR,Françoise,GROSSETÊTE,1946-05-17,F,PPE,Union pour un Mouvement Populaire
@@ -426,7 +426,7 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 4555,GB,Daniel,HANNAN,1971-09-01,M,ECR,Conservative Party
 4538,GB,Malcolm,HARBOUR,1947-02-19,M,ECR,Conservative Party
 28116,IE,Marian,HARKIN,1953-11-26,F,ALDE,-
-103132,NL,Lucas,HARTONG,1963-05-24,M,Array,Partij voor de Vrijheid
+103132,NL,Lucas,HARTONG,1963-05-24,M,NA/NI,Partij voor de Vrijheid
 1914,DE,Jutta,HAUG,1951-10-08,F,S&D,Sozialdemokratische Partei Deutschlands
 96752,DE,Martin,HÄUSLING,1961-03-26,M,Verts/ALE,Bündnis 90/Die Grünen
 28131,SE,Anna,HEDH,1967-03-18,F,S&D,Arbetarepartiet- Socialdemokraterna
@@ -450,10 +450,10 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 96772,DE,Peter,JAHR,1959-04-24,M,PPE,Christlich Demokratische Union Deutschlands
 96806,ES,Teresa,JIMÉNEZ-BECERRIL BARRIO,1961-07-24,F,PPE,Partido Popular
 96837,DE,Petra,KAMMEREVERT,1966-06-01,F,S&D,Sozialdemokratische Partei Deutschlands
-28506,GB,Mike,NATTRASS,1945-12-14,M,Array,An Independence Party
+28506,GB,Mike,NATTRASS,1945-12-14,M,NA/NI,An Independence Party
 28295,ES,Antolín,SÁNCHEZ PRESEDO,1955-04-05,M,S&D,Partido Socialista Obrero Español
 114840,CY,Sophocles,SOPHOCLEOUS,1962-08-07,M,S&D,Movement for Social Democracy EDEK
-96855,HU,Csanád,SZEGEDI,1982-09-22,M,Array,Jobbik Magyarországért Mozgalom
+96855,HU,Csanád,SZEGEDI,1982-09-22,M,NA/NI,Jobbik Magyarországért Mozgalom
 96958,GB,William (The Earl of),DARTMOUTH,1949-09-23,M,EFD,United Kingdom Independence Party
 30475,LT,Justina,VITKAUSKAITE BERNARD,1978-01-11,F,ALDE,Darbo partija
 112014,GB,Phil,BENNION,1954-10-07,M,ALDE,Liberal Democrats Party
@@ -528,8 +528,8 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 28251,AT,Jörg,LEICHTFRIED,1967-06-18,M,S&D,Sozialdemokratische Partei Österreichs
 4262,DE,Jo,LEINEN,1948-04-06,M,S&D,Sozialdemokratische Partei Deutschlands
 97076,FR,Corinne,LEPAGE,1951-05-11,F,ALDE,Citoyenneté Action Participation pour le 21ème siècle
-1023,FR,Jean-Marie,LE PEN,1928-06-20,M,Array,Front national
-28210,FR,Marine,LE PEN,1968-08-05,F,Array,Front national
+1023,FR,Jean-Marie,LE PEN,1928-06-20,M,NA/NI,Front national
+28210,FR,Marine,LE PEN,1968-08-05,F,NA/NI,Front national
 23768,PL,Bogusław,LIBERADZKI,1948-09-12,M,S&D,Sojusz Lewicy Demokratycznej
 28253,AT,Eva,LICHTENBERGER,1954-07-01,F,Verts/ALE,Die Grünen - Die Grüne Alternative
 1927,DE,Peter,LIESE,1965-05-20,M,PPE,Christlich Demokratische Union Deutschlands
@@ -550,7 +550,7 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 1922,DE,Thomas,MANN,1946-01-28,M,PPE,Christlich Demokratische Union Deutschlands
 33982,RO,Marian-Jean,MARINESCU,1952-08-11,M,PPE,Partidul Democrat-Liberal
 1403,GB,David,MARTIN,1954-08-26,M,S&D,Labour Party
-4238,AT,Hans-Peter,MARTIN,1957-08-11,M,Array,"Liste ""Dr. Martin - für Demokratie, Kontrolle, Gerechtigkeit"""
+4238,AT,Hans-Peter,MARTIN,1957-08-11,M,NA/NI,"Liste ""Dr. Martin - für Demokratie, Kontrolle, Gerechtigkeit"""
 4346,ES,Miguel Angel,MARTÍNEZ MARTÍNEZ,1940-01-30,M,S&D,Partido Socialista Obrero Español
 28338,ES,Antonio,MASIP HIDALGO,1946-05-03,M,S&D,Partido Socialista Obrero Español
 23704,CZ,Jiří,MAŠTÁLKA,1956-01-03,M,GUE/NGL,Komunistická strana Čech a Moravy
@@ -573,7 +573,7 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 4519,GB,Claude,MORAES,1965-10-22,M,S&D,Labour Party
 96930,PT,Vital,MOREIRA,1944-11-08,M,S&D,Partido Socialista
 38596,FR,Elisabeth,MORIN-CHARTIER,1947-10-10,F,PPE,Union pour un Mouvement Populaire
-96661,HU,Krisztina,MORVAI,1963-06-22,F,Array,Jobbik Magyarországért Mozgalom
+96661,HU,Krisztina,MORVAI,1963-06-22,F,NA/NI,Jobbik Magyarországért Mozgalom
 1965,NL,Jan,MULDER,1943-10-03,M,ALDE,Volkspartij voor Vrijheid en Democratie
 1073,IT,Cristiana,MUSCARDINI,1948-11-06,F,ECR,Conservatori e Social Riformatori
 5537,ES,Juan Andrés,NARANJO ESCOBAR,1952-01-04,M,PPE,Partido Popular
@@ -585,7 +585,7 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 4289,DE,Angelika,NIEBLER,1963-02-18,F,PPE,Christlich-Soziale Union in Bayern e.V.
 28165,NL,Lambert van,NISTELROOIJ,1953-03-05,M,PPE,Christen Democratisch Appèl
 96794,PL,Sławomir,NITRAS,1973-04-26,M,PPE,Platforma Obywatelska
-96981,AT,Franz,OBERMAYR,1952-05-25,M,Array,Freiheitliche Partei Österreichs
+96981,AT,Franz,OBERMAYR,1952-05-25,M,NA/NI,Freiheitliche Partei Österreichs
 4328,ES,Raimon,OBIOLS,1940-08-05,M,S&D,Partit dels Socialistes de Catalunya
 97230,EE,Kristiina,OJULAND,1966-12-17,F,ALDE,Sõltumatu
 1122,NL,Ria,OOMEN-RUIJTEN,1950-09-06,F,PPE,Christen Democratisch Appèl
@@ -653,11 +653,11 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 96996,IT,Giancarlo,SCOTTÀ,1953-04-11,M,EFD,Lega Nord
 28252,AT,Richard,SEEBER,1962-01-15,M,PPE,Österreichische Volkspartei
 96789,PL,Joanna,SENYSZYN,1949-02-01,F,S&D,Sojusz Lewicy Demokratycznej
-33990,RO,Adrian,SEVERIN,1954-03-28,M,Array,Partidul Social Democrat
+33990,RO,Adrian,SEVERIN,1954-03-28,M,NA/NI,Partidul Social Democrat
 23787,PL,Czesław Adam,SIEKIERSKI,1952-10-08,M,PPE,Polskie Stronnictwo Ludowe
 96755,IT,Sergio Paolo Francesco,SILVESTRIS,1973-12-22,M,PPE,Forza Italia
 1309,GB,Brian,SIMPSON,1953-02-06,M,S&D,Labour Party
-96960,GB,Nicole,SINCLAIRE,1968-07-26,F,Array,We Demand a Referendum
+96960,GB,Nicole,SINCLAIRE,1968-07-26,F,NA/NI,We Demand a Referendum
 96932,DE,Birgit,SIPPEL,1960-01-29,F,S&D,Sozialdemokratische Partei Deutschlands
 28380,PL,Marek,SIWIEC,1955-03-13,M,S&D,-
 2081,GB,Peter,SKINNER,1959-06-01,M,S&D,Labour Party
@@ -666,15 +666,15 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 4282,DE,Renate,SOMMER,1958-09-10,F,PPE,Christlich Demokratische Union Deutschlands
 37676,DK,Søren Bo,SØNDERGAARD,1955-08-16,M,GUE/NGL,Folkebevægelsen mod EU
 28299,PL,Bogusław,SONIK,1953-12-03,M,PPE,Platforma Obywatelska
-97170,ES,Francisco,SOSA WAGNER,1946-06-10,M,Array,"Unión, Progreso y Democracia"
+97170,ES,Francisco,SOSA WAGNER,1946-06-10,M,NA/NI,"Unión, Progreso y Democracia"
 997,IT,Francesco Enrico,SPERONI,1946-10-04,M,EFD,Lega Nord
 4751,BE,Bart,STAES,1958-08-07,M,Verts/ALE,Groen
-96905,NL,Laurence,J.A.J. STASSEN,1971-02-08,F,Array,Partij voor de Vrijheid
+96905,NL,Laurence,J.A.J. STASSEN,1971-02-08,F,NA/NI,Partij voor de Vrijheid
 28170,SK,Peter,ŠŤASTNÝ,1956-09-18,M,PPE,Slovenská demokratická a kresťanská únia - Demokratická strana
 4546,GB,Struan,STEVENSON,1948-04-04,M,ECR,Conservative Party
 4545,GB,Catherine,STIHLER,1973-07-30,F,S&D,Labour Party
-96946,NL,Daniël van der,STOEP,1980-09-12,M,Array,Artikel 50
-34254,BG,Dimitar,STOYANOV,1983-05-17,M,Array,National-Democratic Party
+96946,NL,Daniël van der,STOEP,1980-09-12,M,NA/NI,Artikel 50
+34254,BG,Dimitar,STOYANOV,1983-05-17,M,NA/NI,National-Democratic Party
 2037,GB,Robert,STURDY,1944-06-22,M,ECR,Conservative Party
 23820,HU,László,SURJÁN,1941-09-07,M,PPE,Fidesz-Magyar Polgári Szövetség-Keresztény Demokrata Néppárt
 2295,AT,Hannes,SWOBODA,1946-11-10,M,S&D,Sozialdemokratische Partei Österreichs
@@ -708,7 +708,7 @@ epid,country,first_name,last_name,birthdate,gender,eugroup,party
 96672,SE,Marita,ULVSKOG,1951-09-04,F,S&D,Arbetarepartiet- Socialdemokraterna
 96835,RO,Traian,UNGUREANU,1958-03-01,M,PPE,Partidul Democrat-Liberal
 38601,BG,Vladimir,URUTCHEV,1954-10-01,M,PPE,Citizens for European Development of Bulgaria
-96845,RO,Corneliu,VADIM TUDOR,1949-11-28,M,Array,Partidul România Mare
+96845,RO,Corneliu,VADIM TUDOR,1949-11-28,M,NA/NI,Partidul România Mare
 28617,LV,Inese,VAIDERE,1952-09-03,F,PPE,Vienotība
 37324,RO,Adina-Ioana,VĂLEAN,1968-02-16,F,ALDE,Partidul Naţional Liberal
 5729,BE,Kathleen,VAN BREMPT,1969-11-18,F,S&D,Socialistische Partij.Anders
