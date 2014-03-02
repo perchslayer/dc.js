@@ -81,6 +81,16 @@ dc.chartRegistry = function() {
             _chartMap[group].push(chart);
         },
 
+        deregister: function (chart, group) {
+            group = initializeChartGroup(group);
+            for (var i = 0; i < _chartMap[group].length; i++) {
+                if (_chartMap[group][i].anchorName() === chart.anchorName()) {
+                    _chartMap[group].splice(i, 1);
+                    break;
+                }
+            }
+        },
+
         clear: function(group) {
             if (group) {
                 delete _chartMap[group];
@@ -98,6 +108,10 @@ dc.chartRegistry = function() {
 
 dc.registerChart = function(chart, group) {
     dc.chartRegistry.register(chart, group);
+};
+
+dc.deregisterChart = function (chart, group) {
+    dc.chartRegistry.deregister(chart, group);
 };
 
 dc.hasChart = function(chart) {
@@ -2540,7 +2554,11 @@ dc.coordinateGridMixin = function (_chart) {
         if (!arguments.length) return _focusChart;
         _focusChart = c;
         _chart.on("filtered", function (chart) {
-            if (!rangesEqual(chart.filter(), _focusChart.filter())) {
+            if (!chart.filter()) {
+                dc.events.trigger(function() {
+                    _focusChart.x().domain(_focusChart.xOriginalDomain());
+                });
+            } else if (!rangesEqual(chart.filter(), _focusChart.filter())) {
                 dc.events.trigger(function () {
                     _focusChart.focus(chart.filter());
                 });
@@ -4479,6 +4497,11 @@ dc.dataGrid = function(parent, chartGroup) {
   };
   var _order = d3.ascending;
 
+  var _htmlGroup = function (d) {
+    return "<div class='"+GROUP_CSS_CLASS+"'><h1 class='"+LABEL_CSS_CLASS+"'>"
+           +_chart.keyAccessor()(d)+"</h1></div>";
+  }
+  
   _chart._doRender = function() {
     _chart.selectAll("div."+ GRID_CSS_CLASS).remove();
 
@@ -4498,17 +4521,10 @@ dc.dataGrid = function(parent, chartGroup) {
       .append("div")
       .attr("class", GRID_CSS_CLASS)
 
+    if (_htmlGroup) {
       itemGroup
-      .append("div")
-      .attr("class", GROUP_CSS_CLASS)
-      .call (renderGroupLabel);
-
-    function renderGroupLabel(selection) {
-      selection
-        .append("h1")
-        .attr("class", LABEL_CSS_CLASS)
         .html(function(d) {
-          return _chart.keyAccessor()(d);
+          return _htmlGroup(d);
         });
     }
 
@@ -4575,6 +4591,11 @@ chart.html(function (d) { return "<div class='item "+data.exampleCategory+"'>"+d
     return _chart;
   };
 
+  _chart.htmlGroup = function(_) {
+    if (!arguments.length) return _htmlGroup;
+    _htmlGroup = _;
+    return _chart;
+  };
   /**
 #### .sortBy([sortByFunction])
 Get or set sort-by function. This function works as a value accessor at item level and returns a particular field to be sorted

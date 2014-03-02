@@ -40,6 +40,15 @@ dc.dataGrid = function(parent, chartGroup) {
   var _htmlGroup = function (d) {
     return "<div class='"+GROUP_CSS_CLASS+"'><h1 class='"+LABEL_CSS_CLASS+"'>"
            +_chart.keyAccessor()(d)+"</h1></div>";
+/*      selection
+      .append("div")
+      .attr("class", GROUP_CSS_CLASS)
+        .append("h1")
+        .attr("class", LABEL_CSS_CLASS)
+        .html(function(d) {
+          return _chart.keyAccessor()(d);
+        });
+*/
   }
   
   _chart._doRender = function() {
@@ -66,6 +75,7 @@ dc.dataGrid = function(parent, chartGroup) {
         .html(function(d) {
           return _htmlGroup(d);
         });
+      //.call (_htmlGroup);
     }
 
     groups.exit().remove();

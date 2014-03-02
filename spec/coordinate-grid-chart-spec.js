@@ -763,11 +763,9 @@ describe('dc.coordinateGridChart', function() {
             jasmine.clock().tick(100);
 
             expect(chart.x().domain()).toEqual(selectedRange);
-            spyOn(chart, "focus").and.callThrough();
             rangeChart.filter(null);
             jasmine.clock().tick(100);
-            expect(chart.focus).toHaveBeenCalledWith(null);
-            expect(chart.x().domain()).toEqual(rangeChart.xOriginalDomain());
+            expect(rangeChart.x().domain()).toEqual(rangeChart.xOriginalDomain());
         });
 
         it("should update the range chart brush to match zoomed domain of focus chart", function () {

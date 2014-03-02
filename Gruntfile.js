@@ -69,7 +69,7 @@ module.exports = function (grunt) {
         },
         vows: {
             tests: {
-                src: "test/*.js"
+                src: "test/row-chart-test.js test/web-test.js test/env-data.js test/env-xhr.js test/env.js"
             }
         },
         jasmine: {
@@ -129,10 +129,16 @@ module.exports = function (grunt) {
             options: {markdownOptions: {highlight: 'manual'}}
         },
         docco: {
+            options: {
+                dst: 'web/docs',
+                basepath:'web'
+            },
             howto: {
-                src: 'web/stock.js',
-                dest: 'web/docs',
-                options: {basepath:'web'}
+                files: [
+                    {
+                        src: ['web/stock.js']
+                    }
+                ]
             }
         },
         copy: {
