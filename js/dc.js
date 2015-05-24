@@ -8763,8 +8763,7 @@ dc.inputFilter = function (parent, chartGroup) {
       _chart.root().html(_html());
 
       _chart.root().selectAll("input").on("input", function() {
-        var q= _normalize(this.value);
-        _filter(q);
+        _filter(_normalize(this.value));
         _throttle();
       });
       return _chart;
