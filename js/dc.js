@@ -8754,8 +8754,7 @@ dc.inputFilter = function (parent, chartGroup) {
     var _applyFilter = function (){ dc.redrawAll(); };
     var _html = function() {return "<input class='form-control input-lg' placeholder='search'/>"};
     var _normalize = function (s) { return s.toLowerCase()};
-    var _filter = function(d) { 
-      var q= _normalize(this.value);
+    var _filter = function(q) { 
       _chart.dimension().filterFunction(function (d){return d.indexOf (q) !== -1;});
     };
     var _throttleDuration=200;
@@ -8765,7 +8764,7 @@ dc.inputFilter = function (parent, chartGroup) {
 
       _chart.root().selectAll("input").on("input", function() {
         var q= _normalize(this.value);
-        _chart.dimension().filterFunction(_filter);
+        _filter(q);
         _throttle();
       });
       return _chart;
