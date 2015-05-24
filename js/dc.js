@@ -8754,7 +8754,10 @@ dc.inputFilter = function (parent, chartGroup) {
     var _applyFilter = function (){ dc.redrawAll(); };
     var _html = function() {return "<input class='form-control input-lg' placeholder='search'/>"};
     var _normalize = function (s) { return s.toLowerCase()};
-    var _filter = function(d) { return d.indexOf (q) !== -1;};
+    var _filter = function(d) { 
+      var q= _normalize(this.value);
+      _chart.dimension().filterFunction(function (d){return d.indexOf (q) !== -1;});
+    };
     var _throttleDuration=200;
 
     _chart._doRender = function () {
