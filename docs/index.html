@@ -1751,9 +1751,9 @@ chart.tickFormat(d3.format(<span class="hljs-string">'.2f'</span>));
 </code></pre>
 <h2 id="input-filter-widget">input Filter Widget</h2>
 <p>Includes: <a href="#base-mixin">Base Mixin</a></p>
-<p>The data count widget is a simple widget designed to display an input field allowing to filter the data
+<p>The input filter data widget is a simple widget designed to display an input field allowing to filter the data
 that matches the text typed. </p>
-<p>As opposed to the other graphs, this doesn’t display any result and doesn’t update its display, it’s just to input</p>
+<p>As opposed to the other graphs, this doesn’t display any result and doesn’t update its display, it’s just to input an filter other graphs</p>
 <p>Examples:</p>
 <h4 id="dc-inputfilter-parent-chartgroup-">dc.inputFilter(parent[, chartGroup])</h4>
 <p>Create an input widget and attach it to the given parent element.</p>
@@ -1769,7 +1769,7 @@ A newly created input widget instance</p>
 <h4 id="-dimension-data-mandatory-">.dimension(data) - <strong>mandatory</strong></h4>
 <h4 id="-group-group-mandatory-">.group(group) - <strong>mandatory</strong></h4>
 <p>For the widget, a reduceSum works ok</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> data=[{<span class="hljs-string">"firstname"</span>:<span class="hljs-string">"John"</span>,<span class="hljs-string">"lastname"</span>:<span class="hljs-string">"Coltrane"</span>}{<span class="hljs-string">"fistname"</span>:<span class="hljs-string">"Miles"</span>,lastname:<span class="hljs-string">"Davis"</span>] 
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> data=[{<span class="hljs-string">"firstname"</span>:<span class="hljs-string">"John"</span>,<span class="hljs-string">"lastname"</span>:<span class="hljs-string">"Coltrane"</span>}{<span class="hljs-string">"firstname"</span>:<span class="hljs-string">"Miles"</span>,lastname:<span class="hljs-string">"Davis"</span>] 
 <span class="hljs-keyword">var</span> ndx = crossfilter(data);
 <span class="hljs-keyword">var</span> dimension = ndx.dimension(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(d)</span> </span>{
  <span class="hljs-keyword">return</span> d.lastname.toLowerCase() + <span class="hljs-string">" "</span>+ d.firstname.toLowerCase();

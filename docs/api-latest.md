@@ -2030,10 +2030,10 @@ chart.tickFormat(d3.format('.2f'));
 ## input Filter Widget
 Includes: [Base Mixin](#base-mixin)
 
-The data count widget is a simple widget designed to display an input field allowing to filter the data
+The input filter data widget is a simple widget designed to display an input field allowing to filter the data
 that matches the text typed. 
 
-As opposed to the other graphs, this doesn't display any result and doesn't update its display, it's just to input
+As opposed to the other graphs, this doesn't display any result and doesn't update its display, it's just to input an filter other graphs
 
 Examples:
 
@@ -2055,7 +2055,7 @@ A newly created input widget instance
 For the widget, a reduceSum works ok
 
 ```js
-var data=[{"firstname":"John","lastname":"Coltrane"}{"fistname":"Miles",lastname:"Davis"] 
+var data=[{"firstname":"John","lastname":"Coltrane"}{"firstname":"Miles",lastname:"Davis"] 
 var ndx = crossfilter(data);
 var dimension = ndx.dimension(function(d) {
  return d.lastname.toLowerCase() + " "+ d.firstname.toLowerCase();

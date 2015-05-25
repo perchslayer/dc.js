@@ -8709,10 +8709,10 @@ dc.boxPlot = function (parent, chartGroup) {
 ## input Filter Widget
 Includes: [Base Mixin](#base-mixin)
 
-The data count widget is a simple widget designed to display an input field allowing to filter the data
+The input filter data widget is a simple widget designed to display an input field allowing to filter the data
 that matches the text typed. 
 
-As opposed to the other graphs, this doesn't display any result and doesn't update its display, it's just to input
+As opposed to the other graphs, this doesn't display any result and doesn't update its display, it's just to input an filter other graphs
 
 Examples:
 
@@ -8734,7 +8734,7 @@ A newly created input widget instance
 For the widget, a reduceSum works ok
 
 ```js
-var data=[{"firstname":"John","lastname":"Coltrane"}{"fistname":"Miles",lastname:"Davis"] 
+var data=[{"firstname":"John","lastname":"Coltrane"}{"firstname":"Miles",lastname:"Davis"] 
 var ndx = crossfilter(data);
 var dimension = ndx.dimension(function(d) {
   return d.lastname.toLowerCase() + " "+ d.firstname.toLowerCase();
@@ -8751,28 +8751,29 @@ dc.inputFilter('.search')
 
 dc.inputFilter = function (parent, chartGroup) {
     var _chart = dc.baseMixin({});
-    var _applyFilter = function (){ dc.redrawAll(); };
     var _html = function() {return "<input class='form-control input-lg' placeholder='search'/>"};
     var _normalize = function (s) { return s.toLowerCase()};
-    var _filter = function(q) { 
+    var _filterFunction = function(q) { 
       _chart.dimension().filterFunction(function (d){return d.indexOf (q) !== -1;});
     };
     var _throttleDuration=200;
+    var _throttleTimer;
+
+// TODO: how to remove the mandatory group that isn't useful?    var _chart._group = function () {throw "inputFilter should never call the group function"};
 
     _chart._doRender = function () {
       _chart.root().html(_html());
 
       _chart.root().selectAll("input").on("input", function() {
-        _filter(_normalize(this.value));
+        _filterFunction(_normalize(this.value));
         _throttle();
       });
       return _chart;
     };
 
-    var throttleTimer;
     function _throttle() {
       window.clearTimeout(throttleTimer);
-      throttleTimer = window.setTimeout(function() {
+      _throttleTimer = window.setTimeout(function() {
           dc.redrawAll();
       }, _throttleDuration);
     }
@@ -8800,11 +8801,11 @@ dc.inputFilter = function (parent, chartGroup) {
         return _chart;
     };
 
-    _chart.filter = function (s) {
+    _chart.filterFunction = function (s) {
         if (!arguments.length) {
-            return _filter;
+            return _filterFunction;
         }
-        _filter = s;
+        _filterFunction = s;
         return _chart;
     };
 
