@@ -8759,7 +8759,7 @@ dc.inputFilter = function (parent, chartGroup) {
     var _throttleDuration=200;
     var _throttleTimer;
 
-    group(function (){throw "the group function on inputFilter should never be called, please report the issue"});
+    _chart.group(function (){throw "the group function on inputFilter should never be called, please report the issue"});
 
 // TODO: how to remove the mandatory group that isn't useful?    var _chart._group = function () {throw "inputFilter should never call the group function"};
 
