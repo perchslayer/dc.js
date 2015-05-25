@@ -8774,7 +8774,7 @@ dc.inputFilter = function (parent, chartGroup) {
     };
 
     function _throttle() {
-      window.clearTimeout(throttleTimer);
+      window.clearTimeout(_throttleTimer);
       _throttleTimer = window.setTimeout(function() {
           dc.redrawAll();
       }, _throttleDuration);
