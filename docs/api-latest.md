@@ -26,9 +26,8 @@
   * [Number Display Widget](#number-display-widget)
   * [Heat Map](#heat-map)
   * [Box Plot](#box-plot)
-  * [input Filter Widget](#input-filter-widget)
 
-#### Version 2.0.0-beta.9
+#### Version 2.1.0-dev
 The entire dc.js library is scoped under the **dc** name space. It does not introduce anything else
 into the global name space.
 #### Function Chaining
@@ -1953,13 +1952,11 @@ chart.rowsLabel(function(d) { return d; });
 
 #### .rows([values])
 Gets or sets the values used to create the rows of the heatmap, as an array. By default, all
-the values will be fetched from the data using the value accessor, and they will be sorted in
-ascending order.
+the values will be fetched from the data using the value accessor.
 
 #### .cols([keys])
 Gets or sets the keys used to create the columns of the heatmap, as an array. By default, all
-the values will be fetched from the data using the key accessor, and they will be sorted in
-ascending order.
+the values will be fetched from the data using the key accessor.
 
 #### .boxOnClick([handler])
 Gets or sets the handler that fires when an individual cell is clicked in the heatmap.
@@ -2025,45 +2022,4 @@ integer formatting.
 ```js
 // format ticks to 2 decimal places
 chart.tickFormat(d3.format('.2f'));
-```
-
-## input Filter Widget
-Includes: [Base Mixin](#base-mixin)
-
-The input filter data widget is a simple widget designed to display an input field allowing to filter the data
-that matches the text typed. 
-
-As opposed to the other graphs, this doesn't display any result and doesn't update its display, it's just to input an filter other graphs
-
-Examples:
-
-#### dc.inputFilter(parent[, chartGroup])
-Create an input widget and attach it to the given parent element.
-
-Parameters:
-
-* parent : string | node | selection - any valid
-[d3 single selector](https://github.com/mbostock/d3/wiki/Selections#selecting-elements) specifying
-a dom block element such as a div; or a dom element or d3 selection.
-* chartGroup : string (optional) - name of the chart group this widget should be placed in.
-
-Returns:
-A newly created input widget instance
-#### .dimension(data) - **mandatory**
-
-#### .group(group) - **mandatory**
-For the widget, a reduceSum works ok
-
-```js
-var data=[{"firstname":"John","lastname":"Coltrane"}{"firstname":"Miles",lastname:"Davis"] 
-var ndx = crossfilter(data);
-var dimension = ndx.dimension(function(d) {
- return d.lastname.toLowerCase() + " "+ d.firstname.toLowerCase();
-});
-
-var group   = dimension.group().reduceSum(function(d) { return 1; });
-
-dc.inputFilter('.search')
-   .dimension(dimension)
-   .group(group); // optional, by default reduceSum
 ```
