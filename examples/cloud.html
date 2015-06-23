@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>dc.js - Composite Chart Example</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/dc.css"/>
+<script type="text/javascript" src="../js/d3.js"></script>
+<script type="text/javascript" src="../js/crossfilter.js"></script>
+<script type="text/javascript" src="../js/dc.js"></script>
+</head>
+<body>
+
+
+<body>
+Example of wordcloud
+
+<div class="wordcloud">
+  AAA
+</div>
+
+<script>
+
+d3.csv("subject.light.csv", function(d) {return d;}
+    ,function(error, rows) {
+      render(rows);
+      });
+
+function render (data) {
+  var ndx = crossfilter(data);
+
+  var dim = ndx.dimension(function(d) {
+      return d.subject;
+   })
+
+  var group   = dim.group().reduceSum(function(d) { return 1; });
+
+  var graph =  dc.wordCloud(".wordcloud")
+      .dimension(dim)
+      .group(group);
+
+  dc.renderAll();
+
+
+}
+
+</script>
+</html>
