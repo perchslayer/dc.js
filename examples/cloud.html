@@ -19,7 +19,7 @@ Example of wordcloud
 
 <script>
 
-d3.csv("subject.light.csv", function(d) {return d;}
+d3.csv("subject.csv", function(d) {return d;}
     ,function(error, rows) {
       render(rows);
       });
@@ -34,8 +34,12 @@ function render (data) {
   var group   = dim.group().reduceSum(function(d) { return 1; });
 
   var graph =  dc.wordCloud(".wordcloud")
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
       .dimension(dim)
       .group(group);
+
+      graph.textAccessor(function(d){
+          return d.subject})
 
   dc.renderAll();
 

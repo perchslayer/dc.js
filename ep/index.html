@@ -39,7 +39,6 @@ function grid (selector,data) {
   adjust (data);
 
   var pie_group = dc.pieChart(selector +  " .group").innerRadius(20).radius(70);
-  var word_group = dc.wordCloud(selector + " .word");
   var group = ndx.dimension(function(d) {
       if (typeof d.eugroup == "undefined") return "";
       return d.eugroup;
@@ -67,7 +66,7 @@ function grid (selector,data) {
     .yAxisLabel("#MEPs")
     .dimension(age)
     .group(ageGroup)
-    .renderlet(function (chart) {
+    .on('renderlet', function (chart) {
       if (!console || !console.log) return;
       var d = chart.dimension().top(Number.POSITIVE_INFINITY);
       var total = nb = 0;
@@ -115,12 +114,8 @@ function grid (selector,data) {
     .dimension(group)
     .colors(d3.scale.category10())
     .group(groupGroup)
-    .renderlet(function (chart) {
+    .on('renderlet', function (chart) {
         });
-
-  word_group
-    .dimension(country)
-    .group(countryGroup);
 
   bar_country
     .width(444)
@@ -160,7 +155,7 @@ function grid (selector,data) {
         return d.last_name;
         })
   .order(d3.ascending)
-    .renderlet(function (grid) {
+  .on('renderlet', function (grid) {
         $("img.lazy-load").lazyload ({
 effect : "fadeIn"
 })
@@ -176,7 +171,6 @@ dc.renderAll();
 
 
 <div id="ep2014list">
-<div class="word"></div>
 <div class="group"></div>
 <div class="country"></div>
 <div class="gender"></div>
